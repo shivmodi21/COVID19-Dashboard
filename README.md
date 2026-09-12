@@ -4,6 +4,12 @@ An interactive web dashboard for exploring historical COVID-19 statistics by cou
 
 The project started as a Python-based desktop notification application and was extended into a web-based dashboard using **Python, Flask, BeautifulSoup, HTML, CSS, and JavaScript**.
 
+## Try it here ...
+
+https://covid-19-dashboard-yhgl.onrender.com/
+
+Hosted on render (For Demo)
+
 ## Features
 
 * 🌍 Worldwide COVID-19 statistics overview
@@ -102,51 +108,6 @@ Returns country-level information including:
     "active_cases": "...",
     "serious_critical": "..."
 }
-```
-
-## Running Locally
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/shivmodi21/covid-19-dashboard.git
-cd covid-19-dashboard
-```
-
-### 2. Go to Backend Folder
-
-```bash
-cd backend
-```
-
-### 3. Make Virtual Environment
-
-```bash
-python -m venv .venv
-```
-
-### 4. Activate Virtual Environment
-
-```bash
-.venv\Scripts\activate
-```
-
-### 5. Install backend dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 6. Start the Flask server
-
-```bash
-python app.py
-```
-
-The application will be available at:
-
-```text
-http://127.0.0.1:5000
 ```
 
 ## Notifications
