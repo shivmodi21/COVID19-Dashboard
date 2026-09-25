@@ -17,7 +17,34 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     >
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    >
+
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        (function () {
+            var theme = "light";
+
+            try {
+                var saved = localStorage.getItem("covid-dashboard-theme");
+
+                if (saved === "light" || saved === "dark") {
+                    theme = saved;
+                } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    theme = "dark";
+                }
+            } catch (error) {
+                theme = "light";
+            }
+
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -26,9 +53,25 @@
     <header class="header">
         <div class="container">
 
-            <a href="../../index.html" class="back-link">
-                ← Back to Portfolio
-            </a>
+            <div class="header-top">
+                <a href="https://shivmodi21.github.io/#projects" class="back-link">
+                    ← Back to Portfolio
+                </a>
+
+                <button
+                    type="button"
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    role="switch"
+                    aria-checked="false"
+                    aria-label="Switch to dark mode"
+                >
+                    <span class="theme-toggle-thumb" aria-hidden="true">
+                        <i class="fa-solid fa-sun theme-icon-sun"></i>
+                        <i class="fa-solid fa-moon theme-icon-moon"></i>
+                    </span>
+                </button>
+            </div>
 
             <div class="header-content">
                 <span class="project-label">Python & Web Application</span>
@@ -204,19 +247,6 @@
                                 --
                             </strong>
                         </div>
-
-                    </div>
-
-
-                    <div class="notification-action">
-
-                        <button id="notify-btn">
-                            🔔 Notify Me
-                        </button>
-
-                        <p id="notification-status">
-                            Get a desktop notification for this country.
-                        </p>
 
                     </div>
 

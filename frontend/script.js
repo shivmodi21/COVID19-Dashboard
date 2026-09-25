@@ -31,9 +31,9 @@ const worldRecovered = document.getElementById("world-recovered");
 const countryCount = document.getElementById("country-count");
 
 
-// Notification
-const notifyBtn = document.getElementById("notify-btn");
-const notificationStatus = document.getElementById("notification-status");
+// Theme
+const themeToggle = document.getElementById("theme-toggle");
+const THEME_STORAGE_KEY = "covid-dashboard-theme";
 
 
 /* =================================
@@ -352,83 +352,52 @@ countrySelect.addEventListener(
 
 
 /* =================================
-   Notification
+   Theme Toggle
 ================================= */
 
-notifyBtn.addEventListener("click", async function () {
+function syncThemeToggle(theme) {
 
-    // Make sure a country has been selected
-    const country = selectedCountry.textContent.trim();
+    const isDark = theme === "dark";
 
-    if (!country || country === "--") {
+    themeToggle.setAttribute("aria-checked", String(isDark));
 
-        notificationStatus.textContent =
-            "Please select a country first.";
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+}
 
-        return;
+
+function setTheme(theme) {
+
+    document.documentElement.setAttribute("data-theme", theme);
+
+    try {
+        localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (error) {
+        console.error("Unable to save theme preference:", error);
     }
 
-
-    // Check browser support
-    if (!("Notification" in window)) {
-
-        notificationStatus.textContent =
-            "Desktop notifications are not supported by this browser.";
-
-        return;
-    }
+    syncThemeToggle(theme);
+}
 
 
-    // Ask for permission if necessary
-    if (Notification.permission === "default") {
+themeToggle.addEventListener("click", function () {
 
-        const permission =
-            await Notification.requestPermission();
+    const currentTheme =
+        document.documentElement.getAttribute("data-theme") === "dark"
+            ? "dark"
+            : "light";
 
-        if (permission !== "granted") {
-
-            notificationStatus.textContent =
-                "Notification permission was not granted.";
-
-            return;
-        }
-    }
-
-
-    // Permission denied
-    if (Notification.permission === "denied") {
-
-        notificationStatus.textContent =
-            "Notifications are blocked. Please enable them in browser settings.";
-
-        return;
-    }
-
-
-    // Permission granted
-    if (Notification.permission === "granted") {
-
-        const cases = countryCases.textContent;
-        const deaths = countryDeaths.textContent;
-        const recovered = countryRecovered.textContent;
-
-
-        new Notification(
-            `COVID-19 Update — ${country}`,
-            {
-                body:
-                    `Cases: ${cases}\n` +
-                    `Deaths: ${deaths}\n` +
-                    `Recovered: ${recovered}`
-            }
-        );
-
-
-        notificationStatus.textContent =
-            `Notification sent for ${country}.`;
-    }
-
+    setTheme(currentTheme === "dark" ? "light" : "dark");
 });
+
+
+syncThemeToggle(
+    document.documentElement.getAttribute("data-theme") === "dark"
+        ? "dark"
+        : "light"
+);
 
 
 /* =================================
