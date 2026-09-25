@@ -16,7 +16,6 @@ Hosted on render (For Demo)
 * 🔎 Country selection and automatic statistics loading
 * 📊 Country-level statistics table
 * 🔍 Search countries within the worldwide table
-* 🔔 Browser desktop notifications for the selected country
 * 📱 Responsive dashboard for desktop and mobile
 * 🔄 REST API powered by Flask
 * 🌐 Data retrieved from Worldometer
@@ -41,7 +40,6 @@ The country explorer automatically updates when a country is selected from the d
 * HTML5
 * CSS3
 * JavaScript
-* Browser Notification API
 
 ### Backend
 
@@ -110,14 +108,6 @@ Returns country-level information including:
 }
 ```
 
-## Notifications
-
-The dashboard uses the browser's **Notification API** to display desktop notifications for the selected country.
-
-When the user selects a country and enables notifications, the dashboard can display its current loaded statistics as a desktop notification.
-
-Browser notification permissions must be enabled for the dashboard's domain.
-
 ## Architecture
 
 ```text
@@ -147,7 +137,6 @@ Potential future improvements include:
 * Additional Worldometer statistics
 * Country comparison
 * Automatic background monitoring
-* Notifications when new data is detected
 * Improved caching to reduce requests to the data source
 * Deployment with a production WSGI server
 
@@ -162,11 +151,8 @@ It was later expanded into an interactive web application to demonstrate:
 * Flask backend development
 * Frontend/backend integration
 * JavaScript-based dynamic UI updates
-* Browser notifications
 * Full-stack project deployment
 
 ## Author
 
 **Shiv Modi**
-
-GitHub: https://github.com/shivmodi21
