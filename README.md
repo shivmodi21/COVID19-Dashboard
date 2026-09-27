@@ -58,7 +58,7 @@ COVID-19 statistics are retrieved from **Worldometer**.
 ## Project Structure
 
 ```text
-covid-19-dashboard/
+COVID19-dashboard/
 │
 ├── backend/
 │   ├── app.py
