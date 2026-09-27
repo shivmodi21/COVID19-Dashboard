@@ -153,6 +153,16 @@ It was later expanded into an interactive web application to demonstrate:
 * JavaScript-based dynamic UI updates
 * Full-stack project deployment
 
+---
+
 ## Author
 
 **Shiv Modi**
+B Tech and M Tech - IIT Bombay
+
+```text
+GitHub: https://github.com/shivmodi21
+Portfolio: https://shivmodi21.github.io/
+LinkedIn: https://www.linkedin.com/in/shivmodi210/
+```
+
