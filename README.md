@@ -8,7 +8,7 @@ The project started as a Python-based desktop notification application and was e
 
 https://covid-19-dashboard-yhgl.onrender.com/
 
-Hosted on render (For Demo)
+Deployed on Render for demonstration purposes.
 
 ## Features
 
@@ -48,6 +48,7 @@ The country explorer automatically updates when a country is selected from the d
 * Flask-CORS
 * BeautifulSoup
 * Requests
+* Gunicorn
 
 ### Data Source
 
@@ -62,8 +63,7 @@ COVID19-dashboard/
 │
 ├── backend/
 │   ├── app.py
-│   ├── scraper.py
-│   └── requirements.txt
+│   └── scraper.py
 │
 ├── frontend/
 │   ├── index.html
@@ -71,8 +71,108 @@ COVID19-dashboard/
 │   └── script.js
 │
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 ```
+
+## Setup and Run
+
+### Prerequisites
+
+Make sure Python is installed on your system.
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd COVID19-dashboard
+```
+
+Replace `<repository-url>` with the URL of this GitHub repository.
+
+### 2. Create a virtual environment
+
+From the project root:
+
+```bash
+python -m venv .venv
+```
+
+### 3. Activate the virtual environment
+
+#### Windows PowerShell
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+#### Windows Command Prompt
+
+```cmd
+.venv\Scripts\activate.bat
+```
+
+#### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+### 4. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the application
+
+From the project root:
+
+```bash
+python backend/app.py
+```
+
+The Flask development server will start locally.
+
+Open the dashboard in your browser:
+
+```text
+http://127.0.0.1:5000
+```
+
+or:
+
+```text
+http://localhost:5000
+```
+
+### 6. Stop the application
+
+To stop the development server, press:
+
+```text
+Ctrl + C
+```
+
+## Render Deployment
+
+The application is deployed on **Render** for demonstration purposes.
+
+The project uses Gunicorn as the production WSGI server.
+
+### Build Command
+
+```bash
+pip install -r requirements.txt
+```
+
+### Start Command
+
+```bash
+gunicorn --chdir backend app:app --bind 0.0.0.0:$PORT
+```
+
+The repository root is used as the Render service root so that both the `backend` and `frontend` directories are available to the Flask application.
 
 ## API Endpoints
 
@@ -138,7 +238,7 @@ Potential future improvements include:
 * Country comparison
 * Automatic background monitoring
 * Improved caching to reduce requests to the data source
-* Deployment with a production WSGI server
+* Production monitoring and logging
 
 ## Background
 
@@ -165,4 +265,3 @@ GitHub: https://github.com/shivmodi21
 Portfolio: https://shivmodi21.github.io/
 LinkedIn: https://www.linkedin.com/in/shivmodi210/
 ```
-
