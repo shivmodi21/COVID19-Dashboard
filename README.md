@@ -6,7 +6,7 @@ The project started as a Python-based desktop notification application and was e
 
 ## Try it here ...
 
-https://covid-19-dashboard-yhgl.onrender.com/
+[COVID-19 Dashboard](https://covid-19-dashboard-yhgl.onrender.com/)
 
 Deployed on Render for demonstration purposes.
 
